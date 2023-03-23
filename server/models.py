@@ -49,7 +49,7 @@ class VendorSweet(db.Model, SerializerMixin):
     @validates('price')
     def validate_price(self, key, price):
         if price == "":
-            raise ValueError("Failed simple email validation")
+            raise ValueError(f'{price} cannot be blank')
         if int(price) < 0 or price==None:
-            raise ValueError("Failed simple email validation")
+            raise ValueError(f'{price} cannot be negative or blank')
         return price
